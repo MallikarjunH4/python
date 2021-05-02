@@ -45,24 +45,25 @@ for i in range(1,n+1):
 
 #5 RUSSIAN PRIME 
 
-def isprime(n):
-    c=0;f=0
+def isprime(n,f):
+    c=0
     for i in range(2,n+1):
         if n%i==0:
             c=c+1
     if c==1 and n!=0:
-        print('prime',n) 
+        print('prime',n)
+        f=1
         n=n//10
-        return isprime(n)
+        print(f)
+        return isprime(n,1)
     else:
-        return True
+        return f
+        
     
 n=int(input())
-s=isprime(n)
-if s==True:
-    print("ITS A RUSSIAN PRIME",n )
-else:
+s=isprime(n,0)
+if s==0:
     print("NOT A RUSIAN PRIME")
+else:
+    print("ITS A RUSSIAN PRIME",n )
     
-
-
